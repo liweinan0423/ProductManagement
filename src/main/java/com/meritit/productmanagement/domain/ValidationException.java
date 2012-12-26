@@ -4,6 +4,7 @@ public class ValidationException extends RuntimeException {
     public static final int NOT_BLANK = 1;
     public static final int TOO_LONG = 2;
     public static final int NOT_NULL = 3;
+    public static final int INCORRECT_VALUE = 4;
     private Object property;
     private int type;
 
