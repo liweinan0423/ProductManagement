@@ -16,7 +16,7 @@ public class PersistenceUtils {
     }
 
     private static void init() {
-        Persistence.createEntityManagerFactory("ProductManagement");
+        entityManagerFactory = Persistence.createEntityManagerFactory("ProductManagement");
     }
 
 }

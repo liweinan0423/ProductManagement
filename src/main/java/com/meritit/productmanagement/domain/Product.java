@@ -3,6 +3,11 @@ package com.meritit.productmanagement.domain;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Product {
 
     private static final String[] ARCHITECTURE_VALUES = {"J2EE", "Java桌面", ".Net", "Domino", "Android"};
@@ -15,7 +20,7 @@ public class Product {
 
 
     private String suitableProject;
-    private Object id;
+    private String id;
 
     public void setName(String name) {
         if (StringUtils.isBlank(name)) {
@@ -33,13 +38,13 @@ public class Product {
             throw new ValidationException("cost", ValidationException.NOT_NULL);
         }
 
-        if (String.valueOf(cost).length() > 7) {
+        if (cost.toString().length() > 7) {
             throw new ValidationException("cost", ValidationException.TOO_LONG);
         }
         this.cost = cost;
     }
 
-    public double getCost() {
+    public Integer getCost() {
         return cost;
     }
 
@@ -78,11 +83,13 @@ public class Product {
         return suitableProject;
     }
 
-    public Object getId() {
+    @Id
+    @GeneratedValue
+    public String getId() {
         return id;
     }
 
-    public void setId(Object id) {
+    public void setId(String id) {
         this.id = id;
     }
 
