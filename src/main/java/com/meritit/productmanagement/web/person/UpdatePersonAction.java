@@ -10,7 +10,6 @@ public class UpdatePersonAction extends ProductManagementAction {
     private String name;
     private String department;
     private String login;
-    private String password;
     private String role;
     private String project;
 
@@ -46,14 +45,6 @@ public class UpdatePersonAction extends ProductManagementAction {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getProject() {
         return project;
     }
@@ -77,7 +68,6 @@ public class UpdatePersonAction extends ProductManagementAction {
         personDTO.setName(name);
         personDTO.setDepartment(department);
         personDTO.setLogin(login);
-        personDTO.setPassword(password);
         personDTO.setRole(role);
         personDTO.setProject(new Project(project));
 

@@ -1,6 +1,7 @@
 package com.meritit.productmanagement.domain;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
@@ -21,6 +22,7 @@ public class Project {
     }
 
     @Basic
+    @Column(name = "PROJECT_NAME")
     public String getName() {
         return name;
     }

@@ -16,7 +16,7 @@
             <th>序号</th>
             <th>姓名</th>
             <th>部门</th>
-            <th>用户名</th>
+            <th>登录名</th>
             <th>角色</th>
             <th>所在项目</th>
         </tr>
@@ -40,7 +40,7 @@
                         ${person.role}
                 </td>
                 <td>
-                        ${person.project}
+                        ${person.project.name}
                 </td>
                 <td>
                     <a href="${pageContext.request.contextPath}/person/edit.action?id=${person.id}">修改</a>

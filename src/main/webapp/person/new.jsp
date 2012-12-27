@@ -16,8 +16,13 @@
             </p>
 
             <p>
+                <label for="login">登录名:</label>
+                <input id="login" type="text" name="login" />
+            </p>
+
+            <p>
                 <label for="department">部门:</label>
-                <select id="department">
+                <select id="department" name="department">
                     <s:iterator value="departmentList" var="department">
                         <option value="${department.name}">${department.name}</option>
                     </s:iterator>
@@ -43,7 +48,7 @@
             </p>
             <p>
                 <label for="project">所在项目</label>
-                <select id="project">
+                <select id="project" name="project">
                     <c:forEach var="project" items="${projectList}">
                         <option value="${project.name}">${project.name}</option>
                     </c:forEach>

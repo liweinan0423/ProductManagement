@@ -29,7 +29,9 @@ public class TransactionalThreadFilter implements Filter {
             transaction.commit();
         } catch (Throwable t) {
             if (transaction != null) {
-                transaction.rollback();
+                if (transaction.isActive()) {
+                    transaction.rollback();
+                }
             }
 
             throw new ServletException(t);

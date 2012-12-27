@@ -17,10 +17,15 @@
             </p>
 
             <p>
+                <label for="login">登录名:</label>
+                <input id="login" name="login" value="${person.login}" />
+            </p>
+
+            <p>
                 <label for="department">部门:</label>
-                <select id="department">
+                <select id="department" name="department">
                     <s:iterator value="departmentList" var="department">
-                        <option value="${department.name}" ${person.department.name eq department.name ? 'selected' : ''}>${department.name}</option>
+                        <option value="${department.name}" ${person.department eq department.name ? 'selected' : ''}>${department.name}</option>
                     </s:iterator>
                 </select>
             </p>
@@ -34,7 +39,7 @@
             </p>
             <p>
                 <label for="project">所在项目</label>
-                <select id="project">
+                <select id="project" name="project">
                     <c:forEach var="project" items="${projectList}">
                         <option value="${project.name}" ${person.project.name eq project.name ? 'selected' : ''}>${project.name}</option>
                     </c:forEach>

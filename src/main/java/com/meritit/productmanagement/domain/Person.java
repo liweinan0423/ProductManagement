@@ -1,9 +1,9 @@
 package com.meritit.productmanagement.domain;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 
 @Entity(name = "Person")
 public class Person {
@@ -61,7 +61,7 @@ public class Person {
         this.password = password;
     }
 
-    @Transient
+    @Embedded
     public Project getProject() {
         return project;
     }

@@ -87,7 +87,7 @@ public class ProductManagementApplicationFacade {
         result.setLogin(person.getLogin());
         result.setDepartment(person.getDepartment());
         result.setProject(person.getProject());
-
+        result.setRole(person.getRole());
         return result;
     }
 
@@ -101,7 +101,14 @@ public class ProductManagementApplicationFacade {
 
     public void updatePerson(PersonDTO personDTO) {
 
-        personRepository.update(null);
+        Person person = personRepository.findById(personDTO.getId());
+        person.setName(personDTO.getName());
+        person.setDepartment(personDTO.getDepartment());
+        person.setProject(personDTO.getProject());
+        person.setLogin(personDTO.getLogin());
+        person.setRole(personDTO.getRole());
+
+        personRepository.update(person);
     }
 
     public void savePerson(PersonDTO personDTO) {
@@ -111,6 +118,7 @@ public class ProductManagementApplicationFacade {
         person.setLogin(personDTO.getLogin());
         person.setPassword(personDTO.getPassword());
         person.setProject(personDTO.getProject());
+        person.setRole(personDTO.getRole());
         personRepository.save(person);
     }
 
