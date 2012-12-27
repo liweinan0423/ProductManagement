@@ -6,22 +6,22 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
-public class ProductRepository {
+public class PersonRepository {
 
-    public void save(Product product) {
+    public void save(Person person) {
         EntityManager em = PersistenceHelper.getEntityManger();
-        em.persist(product);
+        em.persist(person);
     }
 
-    public Product findById(String id) {
+    public Person findById(String id) {
         EntityManager em = PersistenceHelper.getEntityManger();
-        Product product = em.find(Product.class, id);
-        return product;
+        Person person = em.find(Person.class, id);
+        return person;
     }
 
-    public List<Product> list(int start, int limit) {
+    public List<Person> list(int start, int limit) {
         EntityManager em = PersistenceHelper.getEntityManger();
-        Query query = em.createQuery("select p from Product as p");
+        Query query = em.createQuery("select p from Person as p");
         query.setFirstResult(start);
         query.setMaxResults(limit);
         List list = query.getResultList();
@@ -30,7 +30,7 @@ public class ProductRepository {
 
     public int totalCount() {
         EntityManager em = PersistenceHelper.getEntityManger();
-        Query query = em.createQuery("select count(*) from Product");
+        Query query = em.createQuery("select count(*) from Person");
         Long result = (Long) query.getSingleResult();
         return result.intValue();
     }
@@ -39,13 +39,13 @@ public class ProductRepository {
         delete(findById(id));
     }
 
-    private void delete(Product product) {
+    private void delete(Person person) {
         EntityManager em = PersistenceHelper.getEntityManger();
-        em.remove(product);
+        em.remove(person);
     }
 
-    public void update(Product product) {
+    public void update(Person person) {
         EntityManager em = PersistenceHelper.getEntityManger();
-        em.merge(product);
+        em.merge(person);
     }
 }

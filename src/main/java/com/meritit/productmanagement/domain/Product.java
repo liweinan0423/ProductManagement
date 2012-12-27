@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "Product")
 public class Product {
 
     private static final String[] ARCHITECTURE_VALUES = {"J2EE", "Java桌面", ".Net", "Domino", "Android"};
