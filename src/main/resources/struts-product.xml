@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="ProductManagement" namespace="/product" extends="struts-default">
+
+        <action name="control" class="com.meritit.productmanagement.web.product.CreateProductAction">
+            <result name="create">/product/new.jsp</result>
+        </action>
+
+        <action name="list" class="com.meritit.productmanagement.web.product.ListProductAction">
+            <result name="success">/product/list.jsp</result>
+        </action>
+
+        <action name="save" class="com.meritit.productmanagement.web.product.SaveProductAction">
+            <result name="success" type="redirect">/product/list.action</result>
+        </action>
+
+        <action name="delete" class="com.meritit.productmanagement.web.product.DeleteProductAction">
+            <result name="success" type="redirect">/product/list.action</result>
+        </action>
+
+        <action name="edit" class="com.meritit.productmanagement.web.product.EditProductAction">
+            <result name="success">/product/edit.jsp</result>
+        </action>
+
+        <action name="update" class="com.meritit.productmanagement.web.product.UpdateProductAction">
+            <result name="success" type="redirect">/product/list.action</result>
+        </action>
+    </package>
+
+</struts>
