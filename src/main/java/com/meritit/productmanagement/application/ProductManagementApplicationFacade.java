@@ -1,6 +1,8 @@
 package com.meritit.productmanagement.application;
 
 import com.meritit.productmanagement.domain.Department;
+import com.meritit.productmanagement.domain.LoginException;
+import com.meritit.productmanagement.domain.LoginService;
 import com.meritit.productmanagement.domain.Person;
 import com.meritit.productmanagement.domain.PersonRepository;
 import com.meritit.productmanagement.domain.Product;
@@ -17,10 +19,12 @@ public class ProductManagementApplicationFacade {
 
     private ProductRepository productRepository;
     private PersonRepository personRepository;
+    private LoginService loginService;
 
     public ProductManagementApplicationFacade() {
         productRepository = new ProductRepository();
         personRepository = new PersonRepository();
+        loginService = new LoginService(personRepository);
     }
 
 
@@ -144,5 +148,20 @@ public class ProductManagementApplicationFacade {
 
     public int countPersons() {
         return personRepository.totalCount();
+    }
+
+    public PersonDTO login(String username, String password) throws LoginException {
+        PersonDTO personDTO = new PersonDTO();
+
+        Person person = loginService.login(username, password);
+
+        personDTO.setId(person.getId());
+        personDTO.setName(person.getName());
+        personDTO.setLogin(person.getLogin());
+        personDTO.setDepartment(person.getDepartment());
+        personDTO.setRole(person.getRole());
+        personDTO.setProject(person.getProject());
+
+        return personDTO;
     }
 }

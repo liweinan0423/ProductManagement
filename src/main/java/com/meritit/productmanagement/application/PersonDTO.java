@@ -2,7 +2,9 @@ package com.meritit.productmanagement.application;
 
 import com.meritit.productmanagement.domain.Project;
 
-public class PersonDTO {
+import java.io.Serializable;
+
+public class PersonDTO implements Serializable {
     private String id;
     private String name;
     private String login;

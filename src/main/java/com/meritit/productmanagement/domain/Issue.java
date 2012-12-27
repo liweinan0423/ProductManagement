@@ -10,10 +10,10 @@ public class Issue {
     private String module;
     private Integer severity;
     private String desc;
-    private Person creater;
+    private String creater;
     private String status;
     private boolean isValid;
-    private Person resolver;
+    private String resolver;
     private Date resolveDate;
 
     public String getDesc() {
