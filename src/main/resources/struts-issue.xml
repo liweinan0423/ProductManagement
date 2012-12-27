@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="Issue" namespace="/issue" extends="struts-default">
+
+        <action name="list" class="com.meritit.productmanagement.web.issue.ListIssueAction">
+            <result name="success">/issue/list.jsp</result>
+        </action>
+
+    </package>
+
+</struts>

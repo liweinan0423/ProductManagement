@@ -10,7 +10,10 @@
     <constant name="struts.ui.theme" value="simple" />
     <constant name="struts.i18n.encoding" value="UTF-8" />
 
+
     <include file="struts-product.xml" />
     <include file="struts-person.xml" />
+    <include file="struts-auth.xml" />
+    <include file="struts-issue.xml" />
 
 </struts>

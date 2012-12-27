@@ -8,8 +8,8 @@
 
     <package name="ProductManagement" namespace="/product" extends="struts-default">
 
-        <action name="control" class="com.meritit.productmanagement.web.product.CreateProductAction">
-            <result name="create">/product/new.jsp</result>
+        <action name="create" class="com.meritit.productmanagement.web.product.CreateProductAction">
+            <result name="success">/product/new.jsp</result>
         </action>
 
         <action name="list" class="com.meritit.productmanagement.web.product.ListProductAction">

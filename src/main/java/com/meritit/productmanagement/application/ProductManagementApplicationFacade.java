@@ -1,13 +1,6 @@
 package com.meritit.productmanagement.application;
 
-import com.meritit.productmanagement.domain.Department;
-import com.meritit.productmanagement.domain.LoginException;
-import com.meritit.productmanagement.domain.LoginService;
-import com.meritit.productmanagement.domain.Person;
-import com.meritit.productmanagement.domain.PersonRepository;
-import com.meritit.productmanagement.domain.Product;
-import com.meritit.productmanagement.domain.ProductRepository;
-import com.meritit.productmanagement.domain.Project;
+import com.meritit.productmanagement.domain.*;
 import com.meritit.productmanagement.infastructure.PersistenceHelper;
 
 import javax.persistence.EntityManager;
@@ -20,11 +13,13 @@ public class ProductManagementApplicationFacade {
     private ProductRepository productRepository;
     private PersonRepository personRepository;
     private LoginService loginService;
+    private IssueRepository issueRepository;
 
     public ProductManagementApplicationFacade() {
         productRepository = new ProductRepository();
         personRepository = new PersonRepository();
         loginService = new LoginService(personRepository);
+        issueRepository = new IssueRepository();
     }
 
 
@@ -163,5 +158,13 @@ public class ProductManagementApplicationFacade {
         personDTO.setProject(person.getProject());
 
         return personDTO;
+    }
+
+    public int countIssues() {
+        return issueRepository.totalCount().intValue();
+    }
+
+    public List<Issue> listIssues(int start, int limit) {
+        return issueRepository.list(start, limit);
     }
 }

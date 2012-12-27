@@ -2,14 +2,25 @@ package com.meritit.productmanagement.domain;
 
 import com.meritit.productmanagement.infastructure.PersistenceHelper;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.NonUniqueResultException;
-import javax.persistence.PersistenceUnit;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.List;
 
 public class PersonRepository {
+
+    public PersonRepository() {
+        EntityManager em = PersistenceHelper.getEntityManger();
+
+        Person admin = em.find(Person.class, "-1");
+
+        if (admin == null) {
+            AdminPerson adminPerson = new AdminPerson();
+            adminPerson.setId("-1");
+            adminPerson.setLogin("admin");
+            adminPerson.setPassword("1");
+
+            em.persist(adminPerson);
+        }
+    }
 
     public void save(Person person) {
         EntityManager em = PersistenceHelper.getEntityManger();
@@ -67,9 +78,10 @@ public class PersonRepository {
         } catch (NonUniqueResultException e) {
             e.printStackTrace();
             throw new LoginException(e, "用户名重复");
+        } catch (NoResultException e) {
+            e.printStackTrace();
+            throw new LoginException(e, "用户不存在");
         }
-
-        throw new RuntimeException("未知错误");
 
     }
 }

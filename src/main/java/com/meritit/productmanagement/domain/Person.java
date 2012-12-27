@@ -1,9 +1,6 @@
 package com.meritit.productmanagement.domain;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "Person")
 public class Person {
@@ -21,6 +18,7 @@ public class Person {
 
     @Id
     @GeneratedValue
+    @Column(columnDefinition = "VARCHAR(100)")
     public String getId() {
         return id;
     }

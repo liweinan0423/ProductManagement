@@ -1,20 +1,52 @@
 package com.meritit.productmanagement.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
+@Entity
 public class Issue {
 
+    private String id;
     private Product product;
     private String title;
     private String version;
     private String module;
     private Integer severity;
     private String desc;
-    private String creater;
+    private String creator;
     private String status;
     private boolean isValid;
     private String resolver;
     private Date resolveDate;
+
+    @Id
+    @GeneratedValue
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    public String getResolver() {
+        return resolver;
+    }
+
+    public void setResolver(String resolver) {
+        this.resolver = resolver;
+    }
 
     public String getDesc() {
         return desc;
@@ -40,6 +72,8 @@ public class Issue {
         this.module = module;
     }
 
+
+    @ManyToOne
     public Product getProduct() {
         return product;
     }

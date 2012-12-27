@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="buttons">
-    <a href="<s:url namespace="/product" action="control" method="create" />">新增产品</a>
+    <a href="<s:url namespace="/product" action="create" />">新增产品</a>
 </div>
 <div id="productList">
     <table>
