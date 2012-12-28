@@ -2,12 +2,12 @@ package com.meritit.productmanagement.web.issue;
 
 import com.meritit.productmanagement.domain.Issue;
 import com.meritit.productmanagement.infastructure.PageUtils;
-import com.meritit.productmanagement.web.ProductManagementAction;
+import com.meritit.productmanagement.web.BaseApplicationAction;
 
 import java.util.List;
 
 
-public class ListIssueAction extends ProductManagementAction {
+public class ListIssueAction extends BaseApplicationAction {
 
     private int pageNo;
     private int totalPages;

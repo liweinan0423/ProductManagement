@@ -1,8 +1,8 @@
 package com.meritit.productmanagement.web.person;
 
-import com.meritit.productmanagement.web.ProductManagementAction;
+import com.meritit.productmanagement.web.BaseApplicationAction;
 
-public class DeletePersonAction extends ProductManagementAction {
+public class DeletePersonAction extends BaseApplicationAction {
 
     private String id;
 

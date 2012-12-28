@@ -2,11 +2,11 @@ package com.meritit.productmanagement.web.person;
 
 import com.meritit.productmanagement.application.PersonDTO;
 import com.meritit.productmanagement.infastructure.PageUtils;
-import com.meritit.productmanagement.web.ProductManagementAction;
+import com.meritit.productmanagement.web.BaseApplicationAction;
 
 import java.util.List;
 
-public class ListPersonAction extends ProductManagementAction {
+public class ListPersonAction extends BaseApplicationAction {
 
     private static final int PAGE_SIZE = 10;
 

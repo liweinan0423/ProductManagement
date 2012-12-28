@@ -2,18 +2,13 @@ package com.meritit.productmanagement.web.auth;
 
 import com.meritit.productmanagement.application.PersonDTO;
 import com.meritit.productmanagement.domain.LoginException;
-import com.meritit.productmanagement.web.ProductManagementAction;
-import org.apache.struts2.interceptor.SessionAware;
+import com.meritit.productmanagement.web.BaseApplicationAction;
 
-import java.util.Map;
-
-public class LoginAction extends ProductManagementAction implements SessionAware {
+public class LoginAction extends BaseApplicationAction {
 
     private String login;
     private String password;
     private String message;
-
-    private Map<String, Object> session;
 
 
     public String getMessage() {
@@ -51,19 +46,13 @@ public class LoginAction extends ProductManagementAction implements SessionAware
             return INPUT;
         }
 
-        session.put("principal", personDTO);
+        getSession().put("principal", personDTO);
 
         return SUCCESS;
     }
 
     public String logout() {
-        session.clear();
+        getSession().clear();
         return LOGIN;
-    }
-
-
-    @Override
-    public void setSession(Map<String, Object> session) {
-        this.session = session;
     }
 }

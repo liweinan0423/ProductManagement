@@ -6,6 +6,7 @@
     <title>产品管理</title>
 </head>
 <body>
+<jsp:include page="/navigator.jsp" />
 <div id="buttons">
     <a href="<s:url namespace="/product" action="create" />">新增产品</a>
 </div>
@@ -22,26 +23,26 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="product" items="${productList}" varStatus="status">
+        <c:forEach var="issue" items="${productList}" varStatus="status">
             <tr>
                 <td>
                         ${status.index + 1}
                 </td>
                 <td>
-                        ${product.name}
+                        ${issue.name}
                 </td>
                 <td>
-                        ${product.cost}
+                        ${issue.cost}
                 </td>
                 <td>
-                        ${product.architecture}
+                        ${issue.architecture}
                 </td>
                 <td>
-                        ${product.suitableProject}
+                        ${issue.suitableProject}
                 </td>
                 <td>
-                    <a href="${pageContext.request.contextPath}/product/edit.action?id=${product.id}">修改</a>
-                    <a href="${pageContext.request.contextPath}/product/delete.action?id=${product.id}" onclick="if (confirm('是否确定')) {return true} else {return false;}">删除</a>
+                    <a href="${pageContext.request.contextPath}/product/edit.action?id=${issue.id}">修改</a>
+                    <a href="${pageContext.request.contextPath}/product/delete.action?id=${issue.id}" onclick="if (confirm('是否确定')) {return true} else {return false;}">删除</a>
                 </td>
             </tr>
         </c:forEach>

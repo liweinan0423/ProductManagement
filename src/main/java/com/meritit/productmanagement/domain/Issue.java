@@ -1,5 +1,6 @@
 package com.meritit.productmanagement.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,7 +16,9 @@ public class Issue {
     private String version;
     private String module;
     private Integer severity;
-    private String desc;
+    private String projectTeam;
+    private Date createDate;
+    private String description;
     private String creator;
     private String status;
     private boolean isValid;
@@ -48,12 +51,12 @@ public class Issue {
         this.resolver = resolver;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public boolean isValid() {
@@ -114,11 +117,28 @@ public class Issue {
         this.title = title;
     }
 
+    @Column(name = "PRODUCT_VERSION")
     public String getVersion() {
         return version;
     }
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getProjectTeam() {
+        return projectTeam;
+    }
+
+    public void setProjectTeam(String projectTeam) {
+        this.projectTeam = projectTeam;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 }

@@ -6,6 +6,7 @@
     <title>人员管理</title>
 </head>
 <body>
+<jsp:include page="/navigator.jsp" />
 <div id="buttons">
     <a href="<s:url namespace="/person" action="create" />">新增人员</a>
 </div>
@@ -19,6 +20,7 @@
             <th>登录名</th>
             <th>角色</th>
             <th>所在项目</th>
+            <th>操作</th>
         </tr>
         </thead>
         <tbody>

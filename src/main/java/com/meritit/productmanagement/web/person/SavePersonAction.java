@@ -2,9 +2,9 @@ package com.meritit.productmanagement.web.person;
 
 import com.meritit.productmanagement.application.PersonDTO;
 import com.meritit.productmanagement.domain.Project;
-import com.meritit.productmanagement.web.ProductManagementAction;
+import com.meritit.productmanagement.web.BaseApplicationAction;
 
-public class SavePersonAction extends ProductManagementAction {
+public class SavePersonAction extends BaseApplicationAction {
 
     private String name;
     private String department;

@@ -2,11 +2,11 @@ package com.meritit.productmanagement.web.person;
 
 import com.meritit.productmanagement.domain.Department;
 import com.meritit.productmanagement.domain.Project;
-import com.meritit.productmanagement.web.ProductManagementAction;
+import com.meritit.productmanagement.web.BaseApplicationAction;
 
 import java.util.List;
 
-public class CreatePersonAction extends ProductManagementAction {
+public class CreatePersonAction extends BaseApplicationAction {
 
     private List<Project> projectList;
     private List<Department> departmentList;

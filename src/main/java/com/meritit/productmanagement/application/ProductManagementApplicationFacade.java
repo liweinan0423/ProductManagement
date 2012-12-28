@@ -2,10 +2,12 @@ package com.meritit.productmanagement.application;
 
 import com.meritit.productmanagement.domain.*;
 import com.meritit.productmanagement.infastructure.PersistenceHelper;
+import com.meritit.productmanagement.web.issue.IssueDTO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ProductManagementApplicationFacade {
@@ -14,12 +16,14 @@ public class ProductManagementApplicationFacade {
     private PersonRepository personRepository;
     private LoginService loginService;
     private IssueRepository issueRepository;
+    private IssueService issueService;
 
     public ProductManagementApplicationFacade() {
         productRepository = new ProductRepository();
         personRepository = new PersonRepository();
         loginService = new LoginService(personRepository);
         issueRepository = new IssueRepository();
+        issueService = new IssueService(issueRepository);
     }
 
 
@@ -166,5 +170,31 @@ public class ProductManagementApplicationFacade {
 
     public List<Issue> listIssues(int start, int limit) {
         return issueRepository.list(start, limit);
+    }
+
+    public void newIssue(IssueDTO issueDTO, String productId) {
+        Issue issue = new Issue();
+
+        Product product = productRepository.findById(productId);
+        issue.setProduct(product);
+        issue.setVersion(issueDTO.getVersion());
+        issue.setModule(issueDTO.getModule());
+        issue.setSeverity(issueDTO.getSeverity());
+        issue.setDescription(issueDTO.getDescription());
+        issue.setProjectTeam(issueDTO.getProjectTeam());
+        issue.setCreateDate(new Date());
+        issue.setCreator(issueDTO.getCreator());
+        issue.setStatus("未解决");
+        issue.setValid(true);
+
+        issueRepository.save(issue);
+    }
+
+    public void changeIssueValid(String id) {
+        issueService.changeIssueValid(id);
+    }
+
+    public void resolveIssue(String id, PersonDTO currentUser) {
+        issueService.resolveIssue(id, personRepository.findById(currentUser.getId()));
     }
 }

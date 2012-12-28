@@ -1,9 +1,9 @@
 package com.meritit.productmanagement.web.product;
 
 import com.meritit.productmanagement.application.ProductDTO;
-import com.meritit.productmanagement.web.ProductManagementAction;
+import com.meritit.productmanagement.web.BaseApplicationAction;
 
-public class UpdateProductAction extends ProductManagementAction {
+public class UpdateProductAction extends BaseApplicationAction {
 
     private String id;
     private String name;

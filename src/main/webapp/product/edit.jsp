@@ -5,6 +5,7 @@
     <title>新增产品</title>
 </head>
 <body>
+<jsp:include page="/navigator.jsp" />
 <div id="newProductForm">
     <form action="${pageContext.request.contextPath}/product/update.action" method="POST" onsubmit="onFormSubmit()">
         <input type="hidden" name="id" value="${product.id}"/>

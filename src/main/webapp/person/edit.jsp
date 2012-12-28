@@ -6,6 +6,7 @@
     <title>修改人员</title>
 </head>
 <body>
+<jsp:include page="/navigator.jsp" />
 <div id="newProductForm">
     <form action="${pageContext.request.contextPath}/person/update.action" method="POST">
         <input type="hidden" name="id" value="${person.id}" />

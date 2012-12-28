@@ -6,6 +6,7 @@
     <title>新增人员</title>
 </head>
 <body>
+<jsp:include page="/navigator.jsp" />
 <div id="newProductForm">
     <form action="${pageContext.request.contextPath}/person/save.action" method="POST">
         <fieldset>

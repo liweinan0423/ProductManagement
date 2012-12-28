@@ -12,6 +12,22 @@
             <result name="success">/issue/list.jsp</result>
         </action>
 
+        <action name="new" class="com.meritit.productmanagement.web.issue.CreateIssueAction">
+            <result name="success">/issue/new.jsp</result>
+        </action>
+
+        <action name="save" class="com.meritit.productmanagement.web.issue.SaveIssueAction">
+            <result name="success" type="redirect">/issue/list.action</result>
+        </action>
+
+        <action name="changeValid" class="com.meritit.productmanagement.web.issue.ChangeIssueValidAction">
+            <result name="success" type="redirect">/issue/list.action</result>
+        </action>
+
+        <action name="resolve" class="com.meritit.productmanagement.web.issue.ResolveIssueAction">
+            <result name="success" type="redirect">/issue/list.action</result>
+        </action>
+
     </package>
 
 </struts>

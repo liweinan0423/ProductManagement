@@ -1,15 +1,12 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+    <title>产品问题管理平台</title>
 </head>
 <body>
+    <jsp:include page="navigator.jsp" />
 
-<ul>
-    <li>
-        <a href="${pageContext.request.contextPath}product/list.action">产品管理</a>
-    </li>
-</ul>
+    <h3>欢迎使用!</h3>
+
 </body>
 </html>

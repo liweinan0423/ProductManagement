@@ -1,9 +1,9 @@
 package com.meritit.productmanagement.web.product;
 
 import com.meritit.productmanagement.application.ProductDTO;
-import com.meritit.productmanagement.web.ProductManagementAction;
+import com.meritit.productmanagement.web.BaseApplicationAction;
 
-public class SaveProductAction extends ProductManagementAction {
+public class SaveProductAction extends BaseApplicationAction {
 
     private String name;
     private Integer cost;

@@ -3,11 +3,11 @@ package com.meritit.productmanagement.web.person;
 import com.meritit.productmanagement.application.PersonDTO;
 import com.meritit.productmanagement.domain.Department;
 import com.meritit.productmanagement.domain.Project;
-import com.meritit.productmanagement.web.ProductManagementAction;
+import com.meritit.productmanagement.web.BaseApplicationAction;
 
 import java.util.List;
 
-public class EditPersonAction extends ProductManagementAction {
+public class EditPersonAction extends BaseApplicationAction {
 
     private String id;
     private PersonDTO person;
