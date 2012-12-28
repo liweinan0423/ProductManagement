@@ -42,7 +42,7 @@
             </p>
             <p>
                 <label for="projectTeam">反馈项目组:</label>
-                <input id="projectTeam" type="text" value="${currentUser.project}" />
+                <input id="projectTeam" type="text" value="${currentUser.project.name}" />
             </p>
             <p>
                 <label for="creator">提交人:</label>

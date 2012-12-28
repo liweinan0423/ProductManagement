@@ -95,11 +95,22 @@ public class ProductManagementApplicationFacade {
     }
 
     public List<PersonDTO> listPerson(int start, int limit) {
-        EntityManager em = PersistenceHelper.getEntityManger();
-        Query query = em.createQuery("select person from Person as person");
-        query.setFirstResult(start);
-        query.setMaxResults(limit);
-        return query.getResultList();
+        List<Person> personList = personRepository.list(start, limit);
+
+        List<PersonDTO> result = new ArrayList<PersonDTO>();
+
+        for (Person person : personList) {
+            PersonDTO personDTO = new PersonDTO();
+            personDTO.setId(person.getId());
+            personDTO.setName(person.getName());
+            personDTO.setProject(person.getProject());
+            personDTO.setRole(person.getRole());
+            personDTO.setDepartment(person.getDepartment());
+            personDTO.setLogin(person.getLogin());
+            result.add(personDTO);
+        }
+
+        return result;
     }
 
     public void updatePerson(PersonDTO personDTO) {
