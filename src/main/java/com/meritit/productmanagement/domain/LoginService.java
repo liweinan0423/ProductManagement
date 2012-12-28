@@ -1,6 +1,5 @@
 package com.meritit.productmanagement.domain;
 
-
 public class LoginService {
 
     private PersonRepository personRepository;
