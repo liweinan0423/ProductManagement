@@ -17,7 +17,8 @@ public class ChangeIssueValidAction extends BaseApplicationAction {
     }
 
     public String execute() {
-        if (!"-1".equals(getCurrentUser()) && !Person.PROJECT_DEVELOPER.equals(getCurrentUser().getRole())) {
+
+        if (!"-1".equals(getCurrentUser().getId()) && !Person.PROJECT_DEVELOPER.equals(getCurrentUser().getRole())) {
             throw new UnsupportedOperationException("权限不足");
         }
 

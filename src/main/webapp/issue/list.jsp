@@ -71,7 +71,7 @@
                     <s:date name="resolveDate" format="yyyy-MM-dd"/>
                 </td>
                 <td>
-                    <c:if test="${currentUser.role eq 'PROJECT_DEV' or currentUser.id eq '-1'}">
+                    <c:if test="${(currentUser.role eq 'PROJECT_DEV' or currentUser.id eq '-1') and (issue.status eq '未解决')}">
                         <a href="${pageContext.request.contextPath}/issue/changeValid.action?id=${issue.id}">
                             <c:if test="${issue.valid}">
                                 置为无效
