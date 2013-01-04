@@ -3,6 +3,12 @@
 <html>
 <head>
     <title>产品问题管理平台</title>
+    <style type="text/css">
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 <form action="${pageContext.request.contextPath}/public/login.action" method="POST">
